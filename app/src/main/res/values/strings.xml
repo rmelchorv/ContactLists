@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">ContactLists</string>
-    <string name="fake_name">UNKNOWN</string>
+    <string name="app_name">ContactList</string>
+    <string name="fake_name">Unknown</string>
     <string name="fake_telephone">9710000000</string>
     <string name="fake_email">a@b.com</string>
     <string name="telephone_title">Telephone</string>
+    <string name="menu_about">About</string>
+    <string name="menu_settings">Settings</string>
 </resources>

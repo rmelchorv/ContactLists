@@ -1,4 +1,4 @@
-package mx.edu.unistmo.repo.mobile.android.contactlists;
+package mx.edu.unistmo.repo.mobile.android.contactlist;
 
 import org.junit.Test;
 

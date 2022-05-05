@@ -1,10 +1,13 @@
-package mx.edu.unistmo.repo.mobile.android.contactlists;
+package mx.edu.unistmo.repo.mobile.android.contactlist;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
 
             intent.putExtra("KEY_EXTRA_CONTACT", contacts.get(i));
             startActivity(intent);
-            finish();
+            //finish();
         });
+
+        /* **
+        RecyclerView rvContacts = findViewById(R.id.rvContacts);
+
+        rvContacts.setAdapter(new ContactAdapter(this, contacts));
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+         */
     }
 }

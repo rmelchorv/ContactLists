@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mx.edu.unistmo.repo.mobile.android.contactlists">
+    package="mx.edu.unistmo.repo.mobile.android.contactlist">
 
     <application
         android:allowBackup="true"
@@ -8,10 +8,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ContactLists">
+        android:theme="@style/Theme.ContactList">
+        <activity
+            android:name=".Test"
+            android:exported="false"
+            android:parentActivityName=".ContactDetail">
+        </activity>
         <activity
             android:name=".ContactDetail"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,12 +32,14 @@
             </intent-filter>
         </activity>
     </application>
-    
+
     <queries>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
-            <data android:scheme="mailto" />
+
             <category android:name="android.intent.category.DEFAULT" />
+
+            <data android:scheme="mailto" />
         </intent>
     </queries>
 

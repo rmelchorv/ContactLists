@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miAbout"
+        android:title="@string/menu_about"
+        android:orderInCategory="100">
+    </item>
+    <item
+        android:id="@+id/miSettings"
+        android:title="@string/menu_settings"
+        android:orderInCategory="101">
+    </item>
+    <item
+        android:id="@+id/miRotate"
+        android:title="Rotate"
+        android:icon="@android:drawable/ic_menu_rotate"
+        android:orderInCategory="102"
+        app:showAsAction="always" />
+</menu>
