@@ -17,8 +17,10 @@ public class Test extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
+        /* Enabling up navigation */
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        /* Associating an imageview for show a popup-menu */
         ImageView ivLauncher = findViewById(R.id.ivLauncher);
 
         ivLauncher.setOnClickListener(this::inflateMenuPopUp);
@@ -32,7 +34,7 @@ public class Test extends AppCompatActivity {
         popupMenu.setOnMenuItemClickListener(menuItem -> {
 
             switch(menuItem.getItemId()) {
-                case R.id.miAbout:  //getBaseContext()
+                case R.id.miAbout:  /* getBaseContext() */
                     Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.miSettings:
@@ -44,6 +46,7 @@ public class Test extends AppCompatActivity {
 
             return false;
         });
+
         popupMenu.show();
     }
 }

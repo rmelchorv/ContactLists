@@ -27,8 +27,10 @@ public class ContactDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_detail);
 
+        /* Enabling up navigation */
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        /* Retrieving contact info via extra parameters */
         Bundle extras = getIntent().getExtras();
         Contact contact;
 
@@ -37,6 +39,8 @@ public class ContactDetail extends AppCompatActivity {
         } catch(Exception e) {
             contact = new Contact();
         }
+
+        /* Set contact info to views */
         TextView tvName = findViewById(R.id.tvName);
         TextView tvTelephone = findViewById(R.id.tvTelephone);
         TextView tvEmail = findViewById(R.id.tvEmail);
@@ -45,6 +49,7 @@ public class ContactDetail extends AppCompatActivity {
         tvTelephone.setText(contact.getTelephone());
         tvEmail.setText(contact.getEmail());
 
+        /* Set onclick listeners for a call-phone or send email */
         LinearLayout llTelephone = findViewById(R.id.llTelephone);
         LinearLayout llEmail = findViewById(R.id.llEmail);
 
@@ -53,9 +58,9 @@ public class ContactDetail extends AppCompatActivity {
             Intent i = new Intent(Intent.ACTION_DIAL);
 
             i.setData(Uri.parse("tel:" + telephone));
-            if (i.resolveActivity(getPackageManager()) != null) {
+
+            if (i.resolveActivity(getPackageManager()) != null)
                 startActivity(i);
-            }
         });
         llEmail.setOnClickListener(view -> {
             String email = tvEmail.getText().toString();
@@ -63,11 +68,12 @@ public class ContactDetail extends AppCompatActivity {
 
             i.setData(Uri.parse("mailto:"));
             i.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
-            if (i.resolveActivity(getPackageManager()) != null) {
+
+            if (i.resolveActivity(getPackageManager()) != null)
                 startActivity(Intent.createChooser(i, "Send e-mail"));
-            }
         });
 
+        /* Set onclick listener to open another activity */
         Button openTestActivity = findViewById(R.id.btnOpenTestActivity);
 
         openTestActivity.setOnClickListener(view -> {
@@ -76,6 +82,7 @@ public class ContactDetail extends AppCompatActivity {
             startActivity(i);
         });
 
+        /* Register a textview to open a context-menu */
         registerForContextMenu(tvName);
     }
 
