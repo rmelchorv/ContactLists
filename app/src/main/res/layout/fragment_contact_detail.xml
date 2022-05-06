@@ -61,10 +61,4 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnOpenTestActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OPEN TEST ACTIVITY" />
-
 </LinearLayout>

@@ -1,9 +1,13 @@
 package mx.edu.unistmo.repo.mobile.android.contactlist.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
@@ -24,6 +28,15 @@ public class Test extends AppCompatActivity {
         ImageView ivLauncher = findViewById(R.id.ivLauncher);
 
         ivLauncher.setOnClickListener(this::inflateMenuPopUp);
+
+
+        Button date = findViewById(R.id.btnDate);
+
+        date.setOnClickListener(view -> {
+            DialogFragment newFragment = new DatePickerFragment();
+
+            newFragment.show(getSupportFragmentManager(), "datePicker");
+        });
     }
 
     @SuppressLint("NonConstantResourceId")

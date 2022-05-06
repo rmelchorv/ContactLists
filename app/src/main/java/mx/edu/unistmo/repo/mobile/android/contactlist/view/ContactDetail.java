@@ -19,6 +19,7 @@ import java.util.Objects;
 import mx.edu.unistmo.repo.mobile.android.contactlist.MainActivity;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
 import mx.edu.unistmo.repo.mobile.android.contactlist.model.Contact;
+import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments.ContactDetailFragment;
 
 public class ContactDetail extends AppCompatActivity {
 
@@ -30,48 +31,22 @@ public class ContactDetail extends AppCompatActivity {
         /* Enabling up navigation */
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        /* Retrieving contact info via extra parameters */
-        Bundle extras = getIntent().getExtras();
-        Contact contact;
+        /* Inflating a fragment to show contact info... */
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fcvFragmentContainer, ContactDetailFragment.class, null)
+                    .commit();
+            /*
+            Bundle bundle = new Bundle();
+            bundle.putInt("some_int", 0);
 
-        try {
-            contact = (Contact) extras.get("KEY_EXTRA_CONTACT");
-        } catch(Exception e) {
-            contact = new Contact();
+            getSupportFragmentManager().beginTransaction()
+                    .setReorderingAllowed(true)
+                    .add(R.id.fragment_container_view, ExampleFragment.class, bundle)
+                    .commit();
+             */
         }
-
-        /* Set contact info to views */
-        TextView tvName = findViewById(R.id.tvName);
-        TextView tvTelephone = findViewById(R.id.tvTelephone);
-        TextView tvEmail = findViewById(R.id.tvEmail);
-
-        tvName.setText(contact.getName());
-        tvTelephone.setText(contact.getTelephone());
-        tvEmail.setText(contact.getEmail());
-
-        /* Set onclick listeners for a call-phone or send email */
-        LinearLayout llTelephone = findViewById(R.id.llTelephone);
-        LinearLayout llEmail = findViewById(R.id.llEmail);
-
-        llTelephone.setOnClickListener(view -> {
-            String telephone = tvTelephone.getText().toString();
-            Intent i = new Intent(Intent.ACTION_DIAL);
-
-            i.setData(Uri.parse("tel:" + telephone));
-
-            if (i.resolveActivity(getPackageManager()) != null)
-                startActivity(i);
-        });
-        llEmail.setOnClickListener(view -> {
-            String email = tvEmail.getText().toString();
-            Intent i = new Intent(Intent.ACTION_SENDTO);
-
-            i.setData(Uri.parse("mailto:"));
-            i.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
-
-            if (i.resolveActivity(getPackageManager()) != null)
-                startActivity(Intent.createChooser(i, "Send e-mail"));
-        });
 
         /* Set onclick listener to open another activity */
         Button openTestActivity = findViewById(R.id.btnOpenTestActivity);
@@ -82,8 +57,6 @@ public class ContactDetail extends AppCompatActivity {
             startActivity(i);
         });
 
-        /* Register a textview to open a context-menu */
-        registerForContextMenu(tvName);
     }
 
     @Override
