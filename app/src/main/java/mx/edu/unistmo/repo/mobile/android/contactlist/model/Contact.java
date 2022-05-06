@@ -1,4 +1,4 @@
-package mx.edu.unistmo.repo.mobile.android.contactlist;
+package mx.edu.unistmo.repo.mobile.android.contactlist.model;
 
 import java.io.Serializable;
 

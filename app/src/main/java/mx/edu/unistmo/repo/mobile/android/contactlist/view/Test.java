@@ -1,11 +1,14 @@
-package mx.edu.unistmo.repo.mobile.android.contactlist;
+package mx.edu.unistmo.repo.mobile.android.contactlist.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+import java.util.Objects;
+import mx.edu.unistmo.repo.mobile.android.contactlist.R;
 
 public class Test extends AppCompatActivity {
 
@@ -13,21 +16,23 @@ public class Test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         ImageView ivLauncher = findViewById(R.id.ivLauncher);
-        ivLauncher.setOnClickListener(view -> {
-            inflateMenuPopUp(view);
-        });
+
+        ivLauncher.setOnClickListener(this::inflateMenuPopUp);
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void inflateMenuPopUp(View view) {
         PopupMenu popupMenu = new PopupMenu(this, view);
 
         popupMenu.getMenuInflater().inflate(R.menu.menu_options, popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(menuItem -> {
+
             switch(menuItem.getItemId()) {
-                case R.id.miAbout://getBaseContext()
+                case R.id.miAbout:  //getBaseContext()
                     Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.miSettings:
@@ -36,6 +41,7 @@ public class Test extends AppCompatActivity {
                 default:
                     break;
             }
+
             return false;
         });
         popupMenu.show();

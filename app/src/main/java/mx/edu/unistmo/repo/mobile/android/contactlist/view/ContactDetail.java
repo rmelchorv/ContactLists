@@ -1,9 +1,11 @@
-package mx.edu.unistmo.repo.mobile.android.contactlist;
+package mx.edu.unistmo.repo.mobile.android.contactlist.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,11 +13,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Objects;
+import mx.edu.unistmo.repo.mobile.android.contactlist.MainActivity;
+import mx.edu.unistmo.repo.mobile.android.contactlist.R;
+import mx.edu.unistmo.repo.mobile.android.contactlist.model.Contact;
 
 public class ContactDetail extends AppCompatActivity {
 
@@ -79,32 +82,37 @@ public class ContactDetail extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+
         Intent i = new Intent(this, MainActivity.class);
 
         startActivity(i);
-        //finish();
+        finish();
     }
 
-    /* **
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
+
         if(keyCode == KeyEvent.KEYCODE_BACK) {
+            Toast.makeText(this, "Back's tap!", Toast.LENGTH_SHORT).show();
+
+            /* **
             Intent i = new Intent(this, MainActivity.class);
+
             startActivity(i);
             finish();
+             */
         }
+
         return super.onKeyDown(keyCode, event);
     }
-     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //return super.onCreateOptionsMenu(menu);
-
         getMenuInflater().inflate(R.menu.menu_options, menu);
         return true;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
@@ -132,6 +140,7 @@ public class ContactDetail extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_options, menu);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
 

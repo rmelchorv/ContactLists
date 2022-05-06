@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContactList">
         <activity
-            android:name=".Test"
+            android:name=".view.Test"
             android:exported="false"
-            android:parentActivityName=".ContactDetail">
+            android:parentActivityName=".view.ContactDetail">
         </activity>
         <activity
-            android:name=".ContactDetail"
+            android:name=".view.ContactDetail"
             android:exported="false"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -27,7 +27,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,9 +35,7 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
-
             <category android:name="android.intent.category.DEFAULT" />
-
             <data android:scheme="mailto" />
         </intent>
     </queries>

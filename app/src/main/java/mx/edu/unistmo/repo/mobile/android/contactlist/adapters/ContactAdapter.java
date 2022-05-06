@@ -1,4 +1,4 @@
-package mx.edu.unistmo.repo.mobile.android.contactlist;
+package mx.edu.unistmo.repo.mobile.android.contactlist.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+import mx.edu.unistmo.repo.mobile.android.contactlist.model.Contact;
+import mx.edu.unistmo.repo.mobile.android.contactlist.R;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
@@ -23,7 +25,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     @NonNull
     @Override
     public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = inflater.inflate(R.layout.card_contact, parent, false);
+        View itemView = inflater.inflate(R.layout.cardview_contact, parent, false);
 
         return new ContactViewHolder(itemView);
     }
@@ -52,7 +54,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         return contacts.size();
     }
 
-    class ContactViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class ContactViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView cvPhoto;
         TextView cvName;
