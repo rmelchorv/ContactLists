@@ -1,6 +1,7 @@
 package mx.edu.unistmo.repo.mobile.android.contactlist.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import mx.edu.unistmo.repo.mobile.android.contactlist.model.Contact;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
+import mx.edu.unistmo.repo.mobile.android.contactlist.view.ContactDetail;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
@@ -37,15 +39,11 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.cvName.setText(contact.getName());
         holder.cvTelephone.setText(contact.getTelephone());
         holder.cvEmail.setText(contact.getEmail());
-
         holder.itemView.setOnClickListener(view -> {
-            /* **
-            Intent intent = new Intent(this, ContactDetail.class);
+            Intent intent = new Intent(view.getContext(), ContactDetail.class);
 
             intent.putExtra("KEY_EXTRA_CONTACT", contact);
-            startActivity(intent);
-            finish();
-             */
+            view.getContext().startActivity(intent);
         });
     }
 
@@ -54,7 +52,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         return contacts.size();
     }
 
-    static class ContactViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    static class ContactViewHolder extends RecyclerView.ViewHolder {
 
         ImageView cvPhoto;
         TextView cvName;
@@ -68,13 +66,6 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             cvName = itemView.findViewById(R.id.cvName);
             cvTelephone = itemView.findViewById(R.id.cvTelephone);
             cvEmail = itemView.findViewById(R.id.cvEmail);
-
-            //itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-
         }
     }
 }
