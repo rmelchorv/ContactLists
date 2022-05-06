@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/cvPhoto">
+            android:layout_toRightOf="@+id/cvPhoto"
+            android:paddingStart="5dp">
 
             <TextView
                 android:id="@+id/cvName"
