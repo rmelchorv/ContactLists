@@ -13,7 +13,7 @@
     </item>
     <item
         android:id="@+id/miRotate"
-        android:title="Rotate"
+        android:title="@string/menu_action_rotate"
         android:icon="@android:drawable/ic_menu_rotate"
         android:orderInCategory="102"
         app:showAsAction="always" />
