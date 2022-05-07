@@ -2,17 +2,16 @@ package mx.edu.unistmo.repo.mobile.android.contactlist.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 import java.util.Objects;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
+import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments.DatePickerFragment;
 
 public class Test extends AppCompatActivity {
 
@@ -29,7 +28,7 @@ public class Test extends AppCompatActivity {
 
         ivLauncher.setOnClickListener(this::inflateMenuPopUp);
 
-
+        /* Showing a date picker */
         Button date = findViewById(R.id.btnDate);
 
         date.setOnClickListener(view -> {
@@ -49,6 +48,9 @@ public class Test extends AppCompatActivity {
             switch(menuItem.getItemId()) {
                 case R.id.miAbout:  /* getBaseContext() */
                     Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.miRotate:
+                    Toast.makeText(this, "Rotate", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.miSettings:
                     Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
