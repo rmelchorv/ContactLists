@@ -21,7 +21,8 @@
             android:layout_width="192dp"
             android:layout_height="192dp"
             android:contentDescription="@string/fake_name"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            tools:ignore="ImageContrastCheck" />
         <Button
             android:id="@+id/btnDate"
             android:layout_width="wrap_content"
