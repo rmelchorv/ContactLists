@@ -16,8 +16,8 @@ import mx.edu.unistmo.repo.mobile.android.contactlist.view.ContactDetailActivity
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
-    LayoutInflater inflater;
-    ArrayList<ContactModel> contacts;
+    private LayoutInflater inflater;
+    private ArrayList<ContactModel> contacts;
 
     public ContactAdapter(Context context, ArrayList<ContactModel> contacts) {
         this.inflater = LayoutInflater.from(context);
