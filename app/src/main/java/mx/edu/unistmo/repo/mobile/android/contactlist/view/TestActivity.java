@@ -12,7 +12,7 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 import java.util.Objects;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
-import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments.DatePickerFragment;
+import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragment.DatePickerFragment;
 
 public class TestActivity extends AppCompatActivity {
 

@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Objects;
 import mx.edu.unistmo.repo.mobile.android.contactlist.MainActivity;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
-import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments.ContactDetailFragment;
+import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragment.ContactDetailFragment;
 
 public class ContactDetailActivity extends AppCompatActivity {
 

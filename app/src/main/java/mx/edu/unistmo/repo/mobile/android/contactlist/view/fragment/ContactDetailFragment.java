@@ -1,4 +1,4 @@
-package mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments;
+package mx.edu.unistmo.repo.mobile.android.contactlist.view.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
