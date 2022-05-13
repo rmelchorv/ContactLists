@@ -7,11 +7,13 @@
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2115" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/activity_contact_detail.xml" value="0.10740740740740741" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/activity_main.xml" value="0.17916666666666667" />
-        <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/activity_slider.xml" value="0.20416666666666666" />
+        <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/activity_slider.xml" value="0.1" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/activity_test.xml" value="0.1" />
+        <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/activity_view_pager.xml" value="0.1" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/cardview_contact.xml" value="0.17916666666666667" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/contact_card.xml" value="0.1" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/contact_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/content_scrolling.xml" value="0.20416666666666666" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/fragment_contact_detail.xml" value="0.17916666666666667" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/layout/options_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/src/mobile/android/ContactList/app/src/main/res/menu/menu_options.xml" value="0.1" />
