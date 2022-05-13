@@ -36,6 +36,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
         ContactModel contact = contacts.get(position);
 
+        holder.cvPhoto.setImageResource(R.mipmap.ic_launcher);
         holder.cvName.setText(contact.getName());
         holder.cvTelephone.setText(contact.getTelephone());
         holder.cvEmail.setText(contact.getEmail());
@@ -54,10 +55,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     static class ContactViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView cvPhoto;
-        TextView cvName;
-        TextView cvTelephone;
-        TextView cvEmail;
+        private final ImageView cvPhoto;
+        private final TextView cvName;
+        private final TextView cvTelephone;
+        private final TextView cvEmail;
 
         public ContactViewHolder(View itemView) {
             super(itemView);
