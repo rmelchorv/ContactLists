@@ -1,4 +1,4 @@
-package mx.edu.unistmo.repo.mobile.android.contactlist.adapters;
+package mx.edu.unistmo.repo.mobile.android.contactlist.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,16 +10,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
-import mx.edu.unistmo.repo.mobile.android.contactlist.model.Contact;
+import mx.edu.unistmo.repo.mobile.android.contactlist.model.ContactModel;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
-import mx.edu.unistmo.repo.mobile.android.contactlist.view.ContactDetail;
+import mx.edu.unistmo.repo.mobile.android.contactlist.view.ContactDetailActivity;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
     LayoutInflater inflater;
-    ArrayList<Contact> contacts;
+    ArrayList<ContactModel> contacts;
 
-    public ContactAdapter(Context context, ArrayList<Contact> contacts) {
+    public ContactAdapter(Context context, ArrayList<ContactModel> contacts) {
         this.inflater = LayoutInflater.from(context);
         this.contacts = contacts;
     }
@@ -34,13 +34,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
-        Contact contact = contacts.get(position);
+        ContactModel contact = contacts.get(position);
 
         holder.cvName.setText(contact.getName());
         holder.cvTelephone.setText(contact.getTelephone());
         holder.cvEmail.setText(contact.getEmail());
         holder.itemView.setOnClickListener(view -> {
-            Intent intent = new Intent(view.getContext(), ContactDetail.class);
+            Intent intent = new Intent(view.getContext(), ContactDetailActivity.class);
 
             intent.putExtra("KEY_EXTRA_CONTACT", contact);
             view.getContext().startActivity(intent);

@@ -3,6 +3,7 @@ package mx.edu.unistmo.repo.mobile.android.contactlist.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ import java.util.Objects;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
 import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments.DatePickerFragment;
 
-public class Test extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,9 @@ public class Test extends AppCompatActivity {
 
             switch(menuItem.getItemId()) {
                 case R.id.miAbout:  /* getBaseContext() */
-                    Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(this, SliderActivity.class);
+
+                    startActivity(i);
                     break;
                 case R.id.miRotate:
                     Toast.makeText(this, "Rotate", Toast.LENGTH_SHORT).show();

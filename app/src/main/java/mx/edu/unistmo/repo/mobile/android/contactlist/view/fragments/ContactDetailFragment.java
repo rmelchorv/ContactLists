@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
-import mx.edu.unistmo.repo.mobile.android.contactlist.model.Contact;
+import mx.edu.unistmo.repo.mobile.android.contactlist.model.ContactModel;
 
 public class ContactDetailFragment extends Fragment {
 
@@ -30,12 +30,12 @@ public class ContactDetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         /* Retrieving contact info via extra parameters */
-        Contact contact;
+        ContactModel contact;
 
         try {
-            contact = (Contact) requireArguments().get("KEY_EXTRA_CONTACT");
+            contact = (ContactModel) requireArguments().get("KEY_EXTRA_CONTACT");
         } catch(Exception e) {
-            contact = new Contact();
+            contact = new ContactModel();
         }
 
         /* Set contact info to views */

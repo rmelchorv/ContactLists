@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mx.edu.unistmo.repo.mobile.android.contactlist">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -10,12 +9,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContactList">
         <activity
-            android:name=".view.Test"
+            android:name=".view.SliderActivity"
             android:exported="false"
-            android:parentActivityName=".view.ContactDetail">
-        </activity>
+            android:parentActivityName=".view.TestActivity" />
         <activity
-            android:name=".view.ContactDetail"
+            android:name=".view.TestActivity"
+            android:exported="false"
+            android:parentActivityName=".view.ContactDetailActivity" />
+        <activity
+            android:name=".view.ContactDetailActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity">
             <meta-data
@@ -27,6 +29,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -35,7 +38,9 @@
     <queries>
         <intent>
             <action android:name="android.intent.action.SENDTO" />
+
             <category android:name="android.intent.category.DEFAULT" />
+
             <data android:scheme="mailto" />
         </intent>
     </queries>

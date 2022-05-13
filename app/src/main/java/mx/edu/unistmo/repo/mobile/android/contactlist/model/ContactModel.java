@@ -2,17 +2,17 @@ package mx.edu.unistmo.repo.mobile.android.contactlist.model;
 
 import java.io.Serializable;
 
-public class Contact implements Serializable {
+public class ContactModel implements Serializable {
 
     private String name;
     private String telephone;
     private String email;
 
-    public Contact() {
+    public ContactModel() {
 
     }
 
-    public Contact(String name, String telephone, String email) {
+    public ContactModel(String name, String telephone, String email) {
         setName(name);
         setTelephone(telephone);
         setEmail(email);

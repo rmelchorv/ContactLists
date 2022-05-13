@@ -15,7 +15,7 @@ import mx.edu.unistmo.repo.mobile.android.contactlist.MainActivity;
 import mx.edu.unistmo.repo.mobile.android.contactlist.R;
 import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragments.ContactDetailFragment;
 
-public class ContactDetail extends AppCompatActivity {
+public class ContactDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class ContactDetail extends AppCompatActivity {
         Button openTestActivity = findViewById(R.id.btnOpenActivity);
 
         openTestActivity.setOnClickListener(view -> {
-            Intent i = new Intent(this, Test.class);
+            Intent i = new Intent(this, TestActivity.class);
 
             startActivity(i);
         });
