@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
@@ -23,7 +24,6 @@ import mx.edu.unistmo.repo.mobile.android.contactlist.view.fragment.DatePickerFr
 public class TestActivity extends AppCompatActivity {
 
     private static final int REQUEST_BT = 1;
-    private static final int REQUEST_ENABLE_BT = 0;
 
     @SuppressLint("MissingPermission")
     @Override
@@ -48,14 +48,50 @@ public class TestActivity extends AppCompatActivity {
             newFragment.show(getSupportFragmentManager(), "datePicker");
         });
 
-        /* Manage permission */
         Button btnBluetooth = findViewById(R.id.btnBluetooth);
-
-        btnBluetooth.setOnClickListener(view -> {
-            requestBluetoothPermission();
-            setUpBluetooth();
-        });
+        
+        btnBluetooth.setOnClickListener(view -> requestBluetoothPermission());
      }
+
+    private void requestBluetoothPermission() {
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH) == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Bluetooth permission already has been granted!", Toast.LENGTH_LONG).show();
+            setupBluetooth();
+        } else {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.BLUETOOTH))
+                Toast.makeText(this, "Bluetooth permission is needed to perform... <something>!", Toast.LENGTH_LONG).show();
+
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.BLUETOOTH }, REQUEST_BT);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        if (requestCode == REQUEST_BT) {
+
+            if (grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                Toast.makeText(this, "Bluetooth was not granted!", Toast.LENGTH_LONG).show();
+            else
+                setupBluetooth();
+        } else
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @SuppressLint("MissingPermission")
+    private void setupBluetooth() {
+        BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        if (btAdapter == null)
+            Toast.makeText(this, "Device doesn't support Bluetooth!", Toast.LENGTH_LONG).show();
+        else if (!btAdapter.isEnabled()) {
+            Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+
+            startActivity(i);
+        }
+    }
 
     @SuppressLint("NonConstantResourceId")
     public void inflateMenuPopUp(View view) {
@@ -82,49 +118,5 @@ public class TestActivity extends AppCompatActivity {
             return false;
         });
         popupMenu.show();
-    }
-
-    public void requestBluetoothPermission() {
-
-        /* Check if permission is already available */
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)
-                != PackageManager.PERMISSION_GRANTED) {
-            /* Permission has been granted */
-
-            /* Provide an additional rationale to the user if the permission was not granted
-             *   and the user would benefit from additional context for the use of the permission */
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.BLUETOOTH))
-                Toast.makeText(this, "Bluetooth permission is needed to perform... <something>!", Toast.LENGTH_SHORT).show();
-
-            /* Request Bluetooth permission */
-            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.BLUETOOTH }, REQUEST_BT);
-        }
-    }
-
-    @SuppressLint("MissingPermission")
-    public void setUpBluetooth() {
-        BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
-
-        if (btAdapter == null)
-            Toast.makeText(this, "Device doesn't support Bluetooth!", Toast.LENGTH_SHORT).show();
-        else if (!btAdapter.isEnabled()) {
-            Intent i = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-
-            startActivity(i);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
-        if (requestCode == REQUEST_BT) {
-            /* Received permission result for Bluetooth permission */
-
-            /* Check: if the only required permission has not been granted, then */
-            if (grantResults[0] != PackageManager.PERMISSION_GRANTED)
-                /* ... Bluetooth permission was denied, so we cannot use this feature */
-                Toast.makeText(this, "Permission was not granted!", Toast.LENGTH_SHORT).show();
-        } else
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }
