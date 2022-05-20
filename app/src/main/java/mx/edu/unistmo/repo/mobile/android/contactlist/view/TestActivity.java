@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
@@ -48,6 +47,7 @@ public class TestActivity extends AppCompatActivity {
             newFragment.show(getSupportFragmentManager(), "datePicker");
         });
 
+        /* Request for a Bluetooth permission  */
         Button btnBluetooth = findViewById(R.id.btnBluetooth);
         
         btnBluetooth.setOnClickListener(view -> requestBluetoothPermission());
@@ -79,6 +79,7 @@ public class TestActivity extends AppCompatActivity {
         } else
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
 
     @SuppressLint("MissingPermission")
     private void setupBluetooth() {
@@ -117,6 +118,7 @@ public class TestActivity extends AppCompatActivity {
             }
             return false;
         });
+
         popupMenu.show();
     }
 }
