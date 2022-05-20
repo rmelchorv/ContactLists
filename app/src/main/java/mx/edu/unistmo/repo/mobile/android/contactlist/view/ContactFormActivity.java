@@ -25,7 +25,7 @@ public class ContactFormActivity extends AppCompatActivity {
         /* Enabling up navigation */
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        /* Setting up the listener for save data in (an internal) text file */
+        /* Setting up the listener for save data in (an internal) text file/shared prefs */
         Button btnSave = findViewById(R.id.btnSave);
 
         btnSave.setOnClickListener(view -> {
