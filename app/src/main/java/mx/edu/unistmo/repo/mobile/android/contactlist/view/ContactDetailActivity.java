@@ -84,7 +84,9 @@ public class ContactDetailActivity extends AppCompatActivity {
 
         switch(item.getItemId()) {
             case R.id.miAbout:
-                Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, ContactFormActivity.class);
+
+                startActivity(i);
                 break;
             case R.id.miRotate:
                 Toast.makeText(this, "Rotate", Toast.LENGTH_SHORT).show();
