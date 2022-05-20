@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ContactList">
         <activity
-            android:name=".ContactFormActivity"
-            android:exported="false" />
+            android:name=".view.ContactFormActivity"
+            android:exported="false"
+            android:parentActivityName=".view.ContactDetailActivity" />
         <activity
             android:name=".view.SliderActivity"
             android:exported="false"
