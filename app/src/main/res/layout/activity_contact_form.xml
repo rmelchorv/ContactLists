@@ -25,7 +25,8 @@
         android:autofillHints="name"
         android:hint="@string/fake_telephone"
         android:inputType="phone"
-        android:minHeight="48dp" />
+        android:minHeight="48dp"
+        android:textColorHint="#757575" />
 
     <Button
         android:id="@+id/btnSave"
