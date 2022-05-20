@@ -40,6 +40,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.cvName.setText(contact.getName());
         holder.cvTelephone.setText(contact.getTelephone());
         holder.cvEmail.setText(contact.getEmail());
+
         holder.itemView.setOnClickListener(view -> {
             Intent intent = new Intent(view.getContext(), ContactDetailActivity.class);
 
